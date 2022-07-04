@@ -1,0 +1,84 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Enterprise Business Rules", "Enterprise Business Rules", "{E376FEBA-FFD2-4BC9-B58E-0848BE0FB8B0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application Business Rules", "Application Business Rules", "{F13BB201-207D-486E-83AD-C8622E10AA94}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interface Adapters", "Interface Adapters", "{22FDD7A2-3A65-4E85-9F52-8F5D671EF0CC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frameworks And Drivers", "Frameworks And Drivers", "{E90BC358-1A53-4E4E-B3CE-FF6E039ACE03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oferton.Entities", "Oferton.Entities\Oferton.Entities.csproj", "{95A002A0-D3B0-4EDA-94BC-810A23DCE0CA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateways", "Gateways", "{20D9F189-273E-4E15-92AF-326D947122E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oferton.Repositories.EFCore", "Oferton.Repositories.EFCore\Oferton.Repositories.EFCore.csproj", "{F4988523-AC6C-44F5-88CC-A537234D2EBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oferton.UseCasesDTOs", "Oferton.UseCasesDTOs\Oferton.UseCasesDTOs.csproj", "{CB2A9305-74AA-4258-AEE8-561FFDC15496}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oferton.UseCases", "Oferton.UseCases\Oferton.UseCases.csproj", "{863757E4-0D52-4889-A92E-FBA22DDDBE2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oferton.IoC", "Oferton.IoC\Oferton.IoC.csproj", "{83F131A6-36F4-4754-8030-5C25E2F227E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presenters", "Presenters", "{4C55B842-680A-4BE2-A8DE-D2F0ADDCB82E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oferton.WebExceptionsPresenter", "Oferton.WebExceptionsPresenter\Oferton.WebExceptionsPresenter.csproj", "{E7721DA9-C3E2-4D0F-A135-D97E8A13329E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oferton.WebApi", "Oferton.WebApi\Oferton.WebApi.csproj", "{73A35FDB-B681-434E-BBE5-AA0BE84B40E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95A002A0-D3B0-4EDA-94BC-810A23DCE0CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95A002A0-D3B0-4EDA-94BC-810A23DCE0CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95A002A0-D3B0-4EDA-94BC-810A23DCE0CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95A002A0-D3B0-4EDA-94BC-810A23DCE0CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4988523-AC6C-44F5-88CC-A537234D2EBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4988523-AC6C-44F5-88CC-A537234D2EBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4988523-AC6C-44F5-88CC-A537234D2EBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4988523-AC6C-44F5-88CC-A537234D2EBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB2A9305-74AA-4258-AEE8-561FFDC15496}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB2A9305-74AA-4258-AEE8-561FFDC15496}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB2A9305-74AA-4258-AEE8-561FFDC15496}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB2A9305-74AA-4258-AEE8-561FFDC15496}.Release|Any CPU.Build.0 = Release|Any CPU
+		{863757E4-0D52-4889-A92E-FBA22DDDBE2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{863757E4-0D52-4889-A92E-FBA22DDDBE2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{863757E4-0D52-4889-A92E-FBA22DDDBE2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{863757E4-0D52-4889-A92E-FBA22DDDBE2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83F131A6-36F4-4754-8030-5C25E2F227E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83F131A6-36F4-4754-8030-5C25E2F227E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83F131A6-36F4-4754-8030-5C25E2F227E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83F131A6-36F4-4754-8030-5C25E2F227E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7721DA9-C3E2-4D0F-A135-D97E8A13329E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7721DA9-C3E2-4D0F-A135-D97E8A13329E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7721DA9-C3E2-4D0F-A135-D97E8A13329E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7721DA9-C3E2-4D0F-A135-D97E8A13329E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73A35FDB-B681-434E-BBE5-AA0BE84B40E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73A35FDB-B681-434E-BBE5-AA0BE84B40E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73A35FDB-B681-434E-BBE5-AA0BE84B40E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73A35FDB-B681-434E-BBE5-AA0BE84B40E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{95A002A0-D3B0-4EDA-94BC-810A23DCE0CA} = {E376FEBA-FFD2-4BC9-B58E-0848BE0FB8B0}
+		{20D9F189-273E-4E15-92AF-326D947122E5} = {22FDD7A2-3A65-4E85-9F52-8F5D671EF0CC}
+		{F4988523-AC6C-44F5-88CC-A537234D2EBA} = {20D9F189-273E-4E15-92AF-326D947122E5}
+		{CB2A9305-74AA-4258-AEE8-561FFDC15496} = {F13BB201-207D-486E-83AD-C8622E10AA94}
+		{863757E4-0D52-4889-A92E-FBA22DDDBE2B} = {F13BB201-207D-486E-83AD-C8622E10AA94}
+		{83F131A6-36F4-4754-8030-5C25E2F227E5} = {22FDD7A2-3A65-4E85-9F52-8F5D671EF0CC}
+		{4C55B842-680A-4BE2-A8DE-D2F0ADDCB82E} = {22FDD7A2-3A65-4E85-9F52-8F5D671EF0CC}
+		{E7721DA9-C3E2-4D0F-A135-D97E8A13329E} = {4C55B842-680A-4BE2-A8DE-D2F0ADDCB82E}
+		{73A35FDB-B681-434E-BBE5-AA0BE84B40E8} = {20D9F189-273E-4E15-92AF-326D947122E5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ECDC7F9A-F504-45D8-8F5A-C2B72965466B}
+	EndGlobalSection
+EndGlobal
