@@ -10,7 +10,7 @@ namespace Oferton.Entities.Interfaces
 {
     public interface IProductRepository
     {
-        void Update(Product product);
+        int Update();
 
         IEnumerable<Product> GetProducts(Specification<Product> specification);
 

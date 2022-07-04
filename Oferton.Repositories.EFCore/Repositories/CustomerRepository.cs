@@ -15,9 +15,11 @@ namespace Oferton.Repositories.EFCore.Repositories
         readonly OfertonContext Context;
         public CustomerRepository(OfertonContext context) => Context = context;
 
-        public void Create(Customer customer)
+        public int Create(Customer customer)
         {
             Context.Add(customer);
+            Context.SaveChanges();
+            return customer.nIdCliente;
         }
     }
 }

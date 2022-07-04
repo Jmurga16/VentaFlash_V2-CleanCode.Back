@@ -15,9 +15,14 @@ namespace Oferton.Repositories.EFCore.Repositories
         readonly OfertonContext Context;
         public ProductRepository(OfertonContext context) => Context = context;
 
-        public void Update(Product product)
+        public int Update( )
         {
-            Context.Add(product);
+            var product1 = Context.Products.First(a => a.nIdProducto == 1);
+            product1.nStock = product1.nStock - 1;
+                                    
+            Context.SaveChanges();
+
+            return product1.nStock;
 
         }
 

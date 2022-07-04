@@ -28,6 +28,8 @@ namespace Oferton.UseCases.CreateOrder
         public async Task<int> Handle(CreateOrderInputPort request, CancellationToken cancellationToken)
         {
             var bEstado = true;
+
+            //Guardar Cliente
             Customer Customer = new Customer
             {
                 sNombre = request.sNombre,
@@ -35,17 +37,23 @@ namespace Oferton.UseCases.CreateOrder
                 sDireccion = request.sDireccion
             };
 
-            CustomerRepository.Create(Customer);
-            //CustomerRepository..Context.Customers.Local.Count;
+            var idCliente = CustomerRepository.Create(Customer);
+
+
             //Guardar Orden
-            OrderRepository.Create(
-                new Order
-                {
-                    Customer= Customer,
-                    nIdCliente = Customer.nIdCliente,
-                    nIdProducto = request.nIdProducto,
-                    bEstado = bEstado
-                });
+            Order Order = new Order
+            {
+                nIdCliente = idCliente,
+                nIdProducto = request.nIdProducto,
+                bEstado = bEstado
+            };
+
+
+            OrderRepository.Create(Order);
+
+            //Actualizar Stock de Producto
+            var nStock = ProductRepository.Update();
+
 
             try
             {
@@ -57,9 +65,9 @@ namespace Oferton.UseCases.CreateOrder
                 throw new GeneralException("Error al crear la orden.", ex.Message);
             }
 
-            //return product.nStock;
+            return nStock;
 
-            return 1;
+            //return 1;
 
 
         }

@@ -9,7 +9,7 @@ namespace Oferton.Entities.Interfaces
 {
     public interface ICustomerRepository
     {
-        void Create(Customer customer);
+        int Create(Customer customer);
 
     }
 }
