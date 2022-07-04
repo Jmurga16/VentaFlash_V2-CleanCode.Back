@@ -18,7 +18,7 @@ namespace Oferton.Repositories.EFCore.Repositories
         public void Update(Product product)
         {
             Context.Add(product);
-            throw new NotImplementedException();
+
         }
 
         public IEnumerable<Product> GetProducts(Specification<Product> specification)

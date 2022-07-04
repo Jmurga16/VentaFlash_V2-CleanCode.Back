@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Oferton.UseCases.CreateOrder
 {
-    public class CreateOrderInputPort:CreateOrderParams, IRequest<int>
+    public class CreateOrderInputPort : CreateOrderParams, IRequest<int>
     {
 
     }

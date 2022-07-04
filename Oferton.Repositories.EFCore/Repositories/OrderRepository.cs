@@ -13,12 +13,9 @@ namespace Oferton.Repositories.EFCore.Repositories
     {
         readonly OfertonContext Context;
         public OrderRepository(OfertonContext context) => Context = context;
-
-
         public void Create(Order order)
         {
             Context.Add(order);
-            throw new NotImplementedException();
         }
     }
 }

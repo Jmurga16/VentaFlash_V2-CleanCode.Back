@@ -18,7 +18,6 @@ namespace Oferton.Repositories.EFCore.Repositories
         public void Create(Customer customer)
         {
             Context.Add(customer);
-            throw new NotImplementedException();
         }
     }
 }

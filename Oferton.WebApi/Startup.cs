@@ -53,9 +53,32 @@ namespace Oferton.WebApi
         {
             if (env.IsDevelopment())
             {
+                app.UseCors(options =>
+                {
+                    options.WithOrigins("http://localhost:4200", "http://localhost:4500");
+                    options.AllowAnyMethod();
+                    options.AllowAnyHeader();
+                });
+
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Oferton.WebApi v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "OfertonAPI v1"));
+            }
+            else
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "OfertonAPI v2");
+                    c.RoutePrefix = string.Empty;
+                });
+
+                app.UseCors(options =>
+                {
+                    options.WithOrigins("https://oferton-ic.azurewebsites.net");
+                    options.AllowAnyMethod();
+                    options.AllowAnyHeader();
+                });
             }
 
             app.UseHttpsRedirection();

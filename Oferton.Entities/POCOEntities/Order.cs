@@ -12,6 +12,7 @@ namespace Oferton.Entities.POCOEntities
         public int nIdProducto { get; set; }
         public int nIdCliente { get; set; }
         public bool bEstado { get; set; }
-        
+        public Customer Customer { get; set; }
+
     }
 }

@@ -7,7 +7,7 @@ namespace Oferton.Repositories.EFCore.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Customers",
+                name: "Customer",
                 columns: table => new
                 {
                     nIdCliente = table.Column<int>(type: "int", nullable: false)
@@ -18,11 +18,11 @@ namespace Oferton.Repositories.EFCore.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Customers", x => x.nIdCliente);
+                    table.PrimaryKey("PK_Customer", x => x.nIdCliente);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Products",
+                name: "Product",
                 columns: table => new
                 {
                     nIdProducto = table.Column<int>(type: "int", nullable: false)
@@ -36,11 +36,11 @@ namespace Oferton.Repositories.EFCore.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Products", x => x.nIdProducto);
+                    table.PrimaryKey("PK_Product", x => x.nIdProducto);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Orders",
+                name: "Order",
                 columns: table => new
                 {
                     nIdOrden = table.Column<int>(type: "int", nullable: false)
@@ -51,47 +51,47 @@ namespace Oferton.Repositories.EFCore.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Orders", x => x.nIdOrden);
+                    table.PrimaryKey("PK_Order", x => x.nIdOrden);
                     table.ForeignKey(
-                        name: "FK_Orders_Customers_nIdCliente",
+                        name: "FK_Order_Customer_nIdCliente",
                         column: x => x.nIdCliente,
-                        principalTable: "Customers",
+                        principalTable: "Customer",
                         principalColumn: "nIdCliente",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Orders_Products_nIdProducto",
+                        name: "FK_Order_Product_nIdProducto",
                         column: x => x.nIdProducto,
-                        principalTable: "Products",
+                        principalTable: "Product",
                         principalColumn: "nIdProducto",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
-                table: "Products",
+                table: "Product",
                 columns: new[] { "nIdProducto", "nCalificacion", "nPrecio", "nStock", "sDescripcion", "sNombreProducto", "sRutaImagen" },
                 values: new object[] { 1, 8m, 430m, 5, "Marca: JBL;Modelo: TUNE 750BTNC;Tipo: Audifonos Bluetooth; Peso: 220gr.;Resistente al agua: No", "AUDIFONOS SKULLCANDY", "assets/images/items/9.jpg" });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Orders_nIdCliente",
-                table: "Orders",
+                name: "IX_Order_nIdCliente",
+                table: "Order",
                 column: "nIdCliente");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Orders_nIdProducto",
-                table: "Orders",
+                name: "IX_Order_nIdProducto",
+                table: "Order",
                 column: "nIdProducto");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Orders");
+                name: "Order");
 
             migrationBuilder.DropTable(
-                name: "Customers");
+                name: "Customer");
 
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "Product");
         }
     }
 }

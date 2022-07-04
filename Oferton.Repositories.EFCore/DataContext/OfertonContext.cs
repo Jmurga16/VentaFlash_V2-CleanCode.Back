@@ -19,21 +19,31 @@ namespace Oferton.Repositories.EFCore.DataContext
         public DbSet<Order> Orders { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<Product>()
-            //    .Property(c => c.nCalificacion)
-            //    .HasMaxLength(9);
+            foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+            {
+                // Use the entity name instead of the Context.DbSet<T> name
+                // refs https://docs.microsoft.com/en-us/ef/core/modeling/entity-types?tabs=fluent-api#table-name
+                modelBuilder.Entity(entityType.ClrType).ToTable(entityType.ClrType.Name);
+            }
 
-            //modelBuilder.Entity<Order>()
-            //.HasKey(od => new { od.nIdProducto, od.nIdCliente });
+            modelBuilder.Entity<Customer>(b =>
+            {
+                b.HasKey(e => e.nIdCliente);
+                b.Property(e => e.nIdCliente).ValueGeneratedOnAdd();
+            });
 
-            modelBuilder.Entity<Customer>()
-                .HasKey(od => new { od.nIdCliente });
 
-            modelBuilder.Entity<Product>()
-                .HasKey(od => new { od.nIdProducto });
+            modelBuilder.Entity<Product>(b =>
+            {
+                b.HasKey(e => e.nIdProducto);
+                b.Property(e => e.nIdProducto).ValueGeneratedOnAdd();
+            });
 
-            modelBuilder.Entity<Order>()
-                .HasKey(od => new { od.nIdOrden });
+            modelBuilder.Entity<Order>(b =>
+            {
+                b.HasKey(e => e.nIdOrden);
+                b.Property(e => e.nIdOrden).ValueGeneratedOnAdd();
+            });
 
             modelBuilder.Entity<Order>()
                 .HasOne<Customer>()

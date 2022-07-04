@@ -36,7 +36,7 @@ namespace Oferton.Repositories.EFCore.Migrations
 
                     b.HasKey("nIdCliente");
 
-                    b.ToTable("Customers");
+                    b.ToTable("Customer");
                 });
 
             modelBuilder.Entity("Oferton.Entities.POCOEntities.Order", b =>
@@ -61,7 +61,7 @@ namespace Oferton.Repositories.EFCore.Migrations
 
                     b.HasIndex("nIdProducto");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Order");
                 });
 
             modelBuilder.Entity("Oferton.Entities.POCOEntities.Product", b =>
@@ -91,7 +91,7 @@ namespace Oferton.Repositories.EFCore.Migrations
 
                     b.HasKey("nIdProducto");
 
-                    b.ToTable("Products");
+                    b.ToTable("Product");
 
                     b.HasData(
                         new

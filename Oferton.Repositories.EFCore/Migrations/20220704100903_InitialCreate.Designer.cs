@@ -9,7 +9,7 @@ using Oferton.Repositories.EFCore.DataContext;
 namespace Oferton.Repositories.EFCore.Migrations
 {
     [DbContext(typeof(OfertonContext))]
-    [Migration("20220704070725_InitialCreate")]
+    [Migration("20220704100903_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,7 +38,7 @@ namespace Oferton.Repositories.EFCore.Migrations
 
                     b.HasKey("nIdCliente");
 
-                    b.ToTable("Customers");
+                    b.ToTable("Customer");
                 });
 
             modelBuilder.Entity("Oferton.Entities.POCOEntities.Order", b =>
@@ -63,7 +63,7 @@ namespace Oferton.Repositories.EFCore.Migrations
 
                     b.HasIndex("nIdProducto");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Order");
                 });
 
             modelBuilder.Entity("Oferton.Entities.POCOEntities.Product", b =>
@@ -93,7 +93,7 @@ namespace Oferton.Repositories.EFCore.Migrations
 
                     b.HasKey("nIdProducto");
 
-                    b.ToTable("Products");
+                    b.ToTable("Product");
 
                     b.HasData(
                         new

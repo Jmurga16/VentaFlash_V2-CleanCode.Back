@@ -2,10 +2,8 @@
 using Oferton.Entities.Exceptions;
 using Oferton.Entities.Interfaces;
 using Oferton.Entities.POCOEntities;
+using Oferton.UseCases.CreateCustomer;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -30,44 +28,28 @@ namespace Oferton.UseCases.CreateOrder
         public async Task<int> Handle(CreateOrderInputPort request, CancellationToken cancellationToken)
         {
             var bEstado = true;
-            Customer customer = new Customer
+            Customer Customer = new Customer
             {
                 sNombre = request.sNombre,
                 sCorreo = request.sCorreo,
                 sDireccion = request.sDireccion
             };
 
-            CustomerRepository.Create(customer);
-
-            //var nStock = ProductRepository.GetProducts()
-
-            #region Insertar Cliente
-
-            //Actualizar Stock
-            /*
-            Product product = new Product
-            {
-                nStock = (nStock - 1)
-            };
-            if (product.nStock<0){
-                bEstado = false
-            }
-            */
-            #endregion
-
-
+            CustomerRepository.Create(Customer);
+            CustomerRepository..Context.Customers.Local.Count;
             //Guardar Orden
-            Order order = new Order
-            {
-                nIdCliente = customer.nIdCliente,
-                nIdProducto = request.nIdProducto,
-                bEstado = bEstado
-            };
-
-            OrderRepository.Create(order);
+            OrderRepository.Create(
+                new Order
+                {
+                    Customer= Customer,
+                    nIdCliente = Customer.nIdCliente,
+                    nIdProducto = request.nIdProducto,
+                    bEstado = bEstado
+                });
 
             try
             {
+
                 await UnitOfWork.SaveChangesAsync();
             }
             catch (Exception ex)

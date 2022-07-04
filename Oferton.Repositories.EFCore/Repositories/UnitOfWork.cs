@@ -1,9 +1,5 @@
 ﻿using Oferton.Entities.Interfaces;
 using Oferton.Repositories.EFCore.DataContext;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Oferton.Repositories.EFCore.Repositories
