@@ -36,7 +36,7 @@ namespace Oferton.UseCases.CreateOrder
             };
 
             CustomerRepository.Create(Customer);
-            CustomerRepository..Context.Customers.Local.Count;
+            //CustomerRepository..Context.Customers.Local.Count;
             //Guardar Orden
             OrderRepository.Create(
                 new Order
