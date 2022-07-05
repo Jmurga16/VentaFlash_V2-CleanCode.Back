@@ -60,10 +60,7 @@ namespace Oferton.UseCases.CreateOrder
             OrderRepository.Create(Order);
 
             //Actualizar Caching
-            //Product productoCache = (Product)MemoryCache.Get("product");
-            //productoCache.nStock = nStock;
-            //
-            //MemoryCache.Set("product", productoCache);
+            //MemoryCache.Remove("product");
 
 
             try

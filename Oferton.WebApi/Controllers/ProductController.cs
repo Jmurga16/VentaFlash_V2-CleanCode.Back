@@ -17,9 +17,6 @@ namespace Oferton.WebApi.Controllers
         readonly IMediator Mediator;
         private readonly IMemoryCache _memoryCache;
 
-
-        //public ProductController(IMediator mediator) => ;
-
         public ProductController(IMediator mediator,IMemoryCache memoryCache)
         {
             Mediator = mediator;
@@ -31,7 +28,7 @@ namespace Oferton.WebApi.Controllers
         public async Task<IEnumerable<Product>> ListProduct()
         {
 
-            return await _memoryCache.GetOrCreate("product", cacheEntry =>
+            return await _memoryCache.GetOrCreateAsync("product", cacheEntry =>
             {
                 return Mediator.Send(new ListProductQuery { nIdProducto = 1 });
             });

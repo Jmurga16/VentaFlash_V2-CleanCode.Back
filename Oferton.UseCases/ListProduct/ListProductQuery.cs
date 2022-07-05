@@ -35,10 +35,10 @@ namespace Oferton.UseCases.ListProduct
             var response = await _context.Products
                              .Where(x => x.nIdProducto == request.nIdProducto)
                              .AsNoTracking()
-                             .ToListAsync();                      
+                             .ToListAsync();
 
             return response.Adapt<IEnumerable<Product>>();
-            
+
         }
     }
 }
