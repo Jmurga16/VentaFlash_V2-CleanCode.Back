@@ -33,6 +33,8 @@ namespace Oferton.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddMemoryCache();
+
             services.AddControllers(options =>
             options.Filters.Add(new ApiExceptionFilterAttribute(
                 new Dictionary<Type, IExceptionHandler>

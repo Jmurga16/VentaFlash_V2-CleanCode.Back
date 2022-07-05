@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.Extensions.Caching.Memory;
 using Oferton.Entities.Exceptions;
 using Oferton.Entities.Interfaces;
 using Oferton.Entities.POCOEntities;
@@ -14,6 +15,8 @@ namespace Oferton.UseCases.CreateOrder
         readonly IProductRepository ProductRepository;
         readonly IOrderRepository OrderRepository;
         readonly ICustomerRepository CustomerRepository;
+        private readonly IMemoryCache MemoryCache;
+
 
         readonly IUnitOfWork UnitOfWork;
 
@@ -21,9 +24,9 @@ namespace Oferton.UseCases.CreateOrder
             IProductRepository productRepository,
             ICustomerRepository customerRepository,
             IOrderRepository orderRepository,
-            IUnitOfWork unitOfWork) =>
-            (CustomerRepository, ProductRepository, OrderRepository, UnitOfWork) =
-            (customerRepository, productRepository, orderRepository, unitOfWork);
+            IUnitOfWork unitOfWork, IMemoryCache memoryCache) =>
+            (CustomerRepository, ProductRepository, OrderRepository, UnitOfWork, MemoryCache) =
+            (customerRepository, productRepository, orderRepository, unitOfWork, memoryCache);
 
         public async Task<int> Handle(CreateOrderInputPort request, CancellationToken cancellationToken)
         {
@@ -39,6 +42,12 @@ namespace Oferton.UseCases.CreateOrder
 
             var idCliente = CustomerRepository.Create(Customer);
 
+            //Actualizar Stock de Producto
+            var nStock = ProductRepository.Update();
+            if (nStock < 0)
+            {
+                bEstado = false;
+            }
 
             //Guardar Orden
             Order Order = new Order
@@ -48,11 +57,13 @@ namespace Oferton.UseCases.CreateOrder
                 bEstado = bEstado
             };
 
-
             OrderRepository.Create(Order);
 
-            //Actualizar Stock de Producto
-            var nStock = ProductRepository.Update();
+            //Actualizar Caching
+            Product productoCache = (Product)MemoryCache.Get("product");
+            productoCache.nStock = nStock;
+
+            MemoryCache.Set("product", productoCache);
 
 
             try
@@ -66,9 +77,6 @@ namespace Oferton.UseCases.CreateOrder
             }
 
             return nStock;
-
-            //return 1;
-
 
         }
 

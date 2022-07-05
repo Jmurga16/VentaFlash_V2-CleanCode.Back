@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using Oferton.Entities.POCOEntities;
 using Oferton.UseCases.ListProduct;
 using System;
@@ -14,14 +15,28 @@ namespace Oferton.WebApi.Controllers
     public class ProductController : ControllerBase
     {
         readonly IMediator Mediator;
+        private readonly IMemoryCache _memoryCache;
 
-        public ProductController(IMediator mediator) => Mediator = mediator;
 
+        //public ProductController(IMediator mediator) => ;
+
+        public ProductController(IMediator mediator,IMemoryCache memoryCache)
+        {
+            Mediator = mediator;
+            _memoryCache = memoryCache;
+
+        }
 
         [HttpGet]
         public async Task<IEnumerable<Product>> ListProduct()
         {
-            return await Mediator.Send(new ListProductQuery { nIdProducto = 1 });
+
+            return await _memoryCache.GetOrCreate("product", cacheEntry =>
+            {
+                return Mediator.Send(new ListProductQuery { nIdProducto = 1 });
+            });
+
+            //return await Mediator.Send(new ListProductQuery { nIdProducto = 1 });
         }
     }
 }
