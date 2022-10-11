@@ -1,3 +1,4 @@
+# VentaFlash_V2-CleanCode.Back
 Prueba Tecnica Venta Flash
 Back - End  C# .Net
 Version 2 - CLEAN CODE + Entity Framework
@@ -25,3 +26,8 @@ Ejecutar los siguientes comandos:
 
 
 Compilar.
+
+Los EndPoints se pueden probar en el UI Swagger: 
+
+![image](https://user-images.githubusercontent.com/58633633/195213587-ad53cf2b-ead0-43c5-b2c2-99015b9d0b85.png)
+
